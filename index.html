@@ -1,0 +1,1056 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connect the Meaning | English Conjunctions</title>
+<style>
+:root {
+  --navy:#17243c;
+  --blue:#4867df;
+  --light:#eef2ff;
+  --green:#16785c;
+  --red:#b83e50;
+  --gold:#d99620;
+  --bg:#f5f7fc;
+  --muted:#68758b;
+  --border:#dfe5f0;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--navy);
+  line-height:1.6;
+}
+button,select { font:inherit; }
+button { cursor:pointer; }
+button:disabled { cursor:not-allowed; opacity:.55; }
+header {
+  background:white;
+  border-bottom:1px solid var(--border);
+  padding:14px 22px;
+}
+.header-inner {
+  max-width:900px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.logo { font-weight:850; font-size:18px; }
+.logo span { color:var(--blue); }
+.timer {
+  background:var(--light);
+  padding:7px 13px;
+  border-radius:30px;
+  font-weight:750;
+  font-variant-numeric:tabular-nums;
+}
+.timer.warning { color:var(--red); }
+main {
+  max-width:820px;
+  margin:30px auto;
+  padding:0 18px 50px;
+}
+.progress-label {
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  font-weight:700;
+  color:var(--muted);
+  margin-bottom:8px;
+}
+.progress {
+  height:9px;
+  border-radius:20px;
+  background:#e0e5f0;
+  overflow:hidden;
+  margin-bottom:24px;
+}
+.progress-fill {
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#4867df,#8a72e8);
+  transition:width .35s;
+}
+.panel {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:30px;
+  box-shadow:0 10px 30px rgba(30,50,100,.045);
+}
+.eyebrow {
+  color:var(--blue);
+  text-transform:uppercase;
+  letter-spacing:1.4px;
+  font-size:12px;
+  font-weight:850;
+}
+h1 { font-size:clamp(29px,5vw,42px); line-height:1.18; margin:12px 0; }
+h2 { font-size:clamp(23px,4vw,29px); line-height:1.25; margin:8px 0 12px; }
+h3 { margin:0 0 10px; }
+p { margin:8px 0 15px; }
+.subtitle { color:var(--muted); font-size:16px; }
+.korean { color:var(--muted); font-size:14px; }
+.hero-icon {
+  font-size:55px;
+  margin:12px 0;
+}
+.objectives {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin:24px 0;
+}
+.objective {
+  background:var(--light);
+  padding:15px;
+  border-radius:13px;
+  font-size:13px;
+}
+.objective strong { display:block; font-size:20px; }
+.btn {
+  border:0;
+  background:var(--blue);
+  color:white;
+  padding:13px 23px;
+  border-radius:12px;
+  font-weight:750;
+  transition:transform .15s,background .15s;
+}
+.btn:hover:not(:disabled) { transform:translateY(-1px); background:#3653c4; }
+.btn.secondary {
+  background:#edf0f8;
+  color:var(--navy);
+}
+.btn.secondary:hover { background:#e0e6f4; }
+.actions {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:24px;
+}
+.lesson-card {
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:17px;
+  margin:13px 0;
+}
+.example {
+  font-size:18px;
+  font-weight:650;
+  margin-bottom:8px;
+}
+.highlight {
+  color:#3557dc;
+  background:#eaf0ff;
+  padding:2px 6px;
+  border-radius:6px;
+}
+.tag {
+  display:inline-block;
+  font-size:12px;
+  font-weight:800;
+  padding:4px 9px;
+  background:var(--light);
+  color:var(--blue);
+  border-radius:20px;
+}
+.grammar-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:18px;
+}
+.grammar-item {
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:13px;
+}
+.grammar-item b { color:var(--blue); font-size:18px; }
+.grammar-item small { display:block; color:var(--muted); }
+.question-count {
+  font-size:13px;
+  font-weight:800;
+  color:var(--blue);
+  margin:16px 0 8px;
+}
+.question {
+  font-size:21px;
+  font-weight:750;
+  line-height:1.55;
+  margin:12px 0 20px;
+}
+.options {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:11px;
+}
+.option {
+  text-align:left;
+  padding:15px 17px;
+  border:2px solid var(--border);
+  background:white;
+  border-radius:12px;
+  color:var(--navy);
+  font-weight:700;
+}
+.option:hover:not(:disabled) {
+  border-color:var(--blue);
+  background:#f7f9ff;
+}
+.option.selected {
+  border-color:var(--blue);
+  background:var(--light);
+}
+.option.correct {
+  border-color:var(--green);
+  background:#e8f7f0;
+  color:var(--green);
+}
+.option.wrong {
+  border-color:var(--red);
+  background:#fff0f1;
+  color:var(--red);
+}
+.feedback {
+  border-radius:13px;
+  padding:16px 18px;
+  margin-top:20px;
+  background:var(--light);
+  border-left:4px solid var(--blue);
+}
+.feedback.success {
+  background:#eaf8f1;
+  border-color:var(--green);
+}
+.feedback.error {
+  background:#fff1f2;
+  border-color:var(--red);
+}
+.feedback strong { display:block; margin-bottom:6px; }
+.feedback p { margin:5px 0; }
+.scene {
+  background:linear-gradient(120deg,#eef2ff,#f8f0ff);
+  padding:18px;
+  border-radius:14px;
+  margin:18px 0;
+}
+.scene-label {
+  font-size:12px;
+  font-weight:850;
+  letter-spacing:1px;
+  color:var(--blue);
+}
+.scene p { margin-bottom:0; }
+.builder {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  align-items:center;
+  padding:20px;
+  background:#f7f9fe;
+  border-radius:14px;
+  margin:15px 0;
+  font-size:18px;
+  font-weight:650;
+}
+.builder select {
+  border:2px solid #a8b7ef;
+  border-radius:9px;
+  padding:8px;
+  color:var(--blue);
+  background:white;
+  font-weight:750;
+  max-width:100%;
+}
+.score-circle {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:170px;
+  height:170px;
+  margin:25px auto;
+  border:12px solid #dfe7ff;
+  border-top-color:var(--blue);
+  border-right-color:var(--blue);
+  border-radius:50%;
+  font-size:39px;
+  font-weight:850;
+}
+.review {
+  padding:15px;
+  border-radius:12px;
+  background:#f7f9fd;
+  margin:10px 0;
+}
+.review strong { color:var(--blue); }
+.hidden { display:none !important; }
+.note {
+  font-size:13px;
+  color:var(--muted);
+  margin-top:16px;
+}
+@media(max-width:600px) {
+  main { margin:18px auto; }
+  .panel { padding:20px; border-radius:17px; }
+  .objectives { grid-template-columns:1fr; }
+  .grammar-grid { grid-template-columns:1fr; }
+  .options { grid-template-columns:1fr; }
+  .question { font-size:19px; }
+  .header-inner { flex-wrap:wrap; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">🔗 Connect<span> the Meaning</span></div>
+    <div id="timer" class="timer" aria-live="off">⏱ 10:00</div>
+  </div>
+</header>
+
+<main>
+  <div class="progress-label">
+    <span id="stageLabel">Ready to learn</span>
+    <span id="progressText">0%</span>
+  </div>
+  <div class="progress">
+    <div id="progressFill" class="progress-fill"></div>
+  </div>
+  <section id="app" class="panel" aria-live="polite"></section>
+</main>
+
+<script>
+"use strict";
+
+/*
+  CONNECT THE MEANING
+  Audience: Korean adult EFL learners, A2-B1
+  Duration: approximately 10 minutes
+  All content and logic are embedded in this file.
+*/
+
+const app = document.getElementById("app");
+
+const grammar = [
+  {
+    word:"and", meaning:"추가 / 나열",
+    purpose:"Adds information",
+    example:"I work in Seoul, and I live nearby."
+  },
+  {
+    word:"but", meaning:"대조",
+    purpose:"Shows a contrast",
+    example:"I like coffee, but I don't drink it at night."
+  },
+  {
+    word:"or", meaning:"선택",
+    purpose:"Presents a choice",
+    example:"We can take a taxi or use the subway."
+  },
+  {
+    word:"so", meaning:"결과",
+    purpose:"Shows a result",
+    example:"I was tired, so I went home."
+  },
+  {
+    word:"because", meaning:"이유",
+    purpose:"Gives a reason",
+    example:"I went home because I was tired."
+  },
+  {
+    word:"although", meaning:"양보 / 예상과 다른 결과",
+    purpose:"Shows an unexpected contrast",
+    example:"Although it was raining, we went hiking."
+  },
+  {
+    word:"when", meaning:"시간",
+    purpose:"Connects events in time",
+    example:"I listen to podcasts when I commute."
+  }
+];
+
+const guided = [
+  {
+    q:"I wanted to buy the jacket, ___ it was too expensive.",
+    options:["and","but","so","because"],
+    answer:"but",
+    ko:"재킷을 사고 싶었지만 너무 비쌌어요.",
+    why:"The second idea contrasts with the first. 'But' expresses contrast.",
+    whyKo:"앞 문장과 뒤 문장의 내용이 대조되므로 but을 사용합니다."
+  },
+  {
+    q:"I missed the bus, ___ I arrived late.",
+    options:["because","although","so","or"],
+    answer:"so",
+    ko:"버스를 놓쳐서 늦게 도착했어요.",
+    why:"Arriving late is the result of missing the bus. 'So' introduces a result.",
+    whyKo:"버스를 놓친 것이 원인이고 늦은 것이 결과입니다."
+  },
+  {
+    q:"I stayed home ___ I wasn't feeling well.",
+    options:["because","but","or","and"],
+    answer:"because",
+    ko:"몸이 좋지 않아서 집에 있었어요.",
+    why:"Not feeling well explains the reason for staying home.",
+    whyKo:"집에 있었던 이유를 설명하므로 because를 사용합니다."
+  },
+  {
+    q:"Would you like tea ___ coffee?",
+    options:["so","because","or","although"],
+    answer:"or",
+    ko:"차와 커피 중 무엇을 드시겠어요?",
+    why:"'Or' connects two alternatives.",
+    whyKo:"두 가지 중 하나를 선택할 때 or를 사용합니다."
+  },
+  {
+    q:"___ I was nervous, I gave the presentation.",
+    options:["So","Although","And","Because"],
+    answer:"Although",
+    ko:"긴장했지만 발표를 했어요.",
+    why:"Giving the presentation happened despite feeling nervous.",
+    whyKo:"긴장했다는 상황에도 불구하고 발표를 했다는 뜻입니다."
+  }
+];
+
+const situations = [
+  {
+    scene:"💼 WORKPLACE",
+    context:"Your coworker asks why you missed the morning meeting.",
+    q:"I missed the meeting ___ my train was delayed.",
+    options:["because","so","although","or"],
+    answer:"because",
+    ko:"기차가 지연되어 회의에 참석하지 못했어요.",
+    why:"The delayed train is the reason you missed the meeting.",
+    whyKo:"기차 지연은 회의에 빠진 이유이므로 because가 적절합니다."
+  },
+  {
+    scene:"✈️ TRAVEL",
+    context:"You are talking about a trip that was enjoyable despite bad weather.",
+    q:"___ the weather was terrible, we had a great time.",
+    options:["Because","So","Although","And"],
+    answer:"Although",
+    ko:"날씨가 끔찍했지만 즐거운 시간을 보냈어요.",
+    why:"The good experience is unexpected given the bad weather.",
+    whyKo:"나쁜 날씨에도 불구하고 즐거웠다는 양보 관계입니다."
+  },
+  {
+    scene:"☕ DAILY ROUTINE",
+    context:"You are describing your usual morning habit.",
+    q:"I usually check my messages ___ I drink my morning coffee.",
+    options:["when","but","so","or"],
+    answer:"when",
+    ko:"저는 보통 아침 커피를 마실 때 메시지를 확인해요.",
+    why:"'When' connects two events in time.",
+    whyKo:"두 행동이 일어나는 시간적 관계를 나타냅니다."
+  },
+  {
+    scene:"🍽 DINNER PLANS",
+    context:"You and a friend are discussing two possible restaurants.",
+    q:"We can try the new Italian restaurant ___ go to our usual place.",
+    options:["because","although","so","or"],
+    answer:"or",
+    ko:"새 이탈리안 식당에 가거나 평소 가던 곳에 갈 수 있어요.",
+    why:"The speaker is presenting two possible choices.",
+    whyKo:"두 가지 선택지를 제시하므로 or를 사용합니다."
+  }
+];
+
+const finalQuestions = [
+  {
+    q:"I had an early meeting, ___ I went to bed before 10.",
+    options:["because","although","so","but"],
+    answer:"so",
+    ko:"이른 회의가 있어서 10시 전에 잠자리에 들었어요.",
+    why:"Going to bed early is the result.",
+    whyKo:"일찍 자는 행동이 앞 상황의 결과입니다."
+  },
+  {
+    q:"I enjoy working from home, ___ I sometimes miss my coworkers.",
+    options:["but","because","when","so"],
+    answer:"but",
+    ko:"재택근무를 좋아하지만 가끔 동료들이 그리워요.",
+    why:"The second idea contrasts with the first.",
+    whyKo:"긍정적인 생각과 아쉬운 점을 대조합니다."
+  },
+  {
+    q:"___ she was busy, she helped me finish the report.",
+    options:["Because","Although","So","Or"],
+    answer:"Although",
+    ko:"바빴지만 보고서를 끝내도록 도와줬어요.",
+    why:"She helped despite being busy.",
+    whyKo:"바쁜 상황에도 불구하고 도왔다는 뜻입니다."
+  },
+  {
+    q:"I listen to English podcasts ___ I exercise.",
+    options:["so","or","when","but"],
+    answer:"when",
+    ko:"운동할 때 영어 팟캐스트를 들어요.",
+    why:"The sentence describes when the activity happens.",
+    whyKo:"팟캐스트를 듣는 시간을 나타냅니다."
+  },
+  {
+    q:"I bought some fruit ___ vegetables at the market.",
+    options:["and","so","although","because"],
+    answer:"and",
+    ko:"시장에서 과일과 채소를 샀어요.",
+    why:"'And' adds another item to a list.",
+    whyKo:"두 가지 물건을 나열하고 추가하는 관계입니다."
+  }
+];
+
+let stage = "welcome";
+let index = 0;
+let selected = null;
+let checked = false;
+let guidedCorrect = 0;
+let situationCorrect = 0;
+let finalCorrect = 0;
+let answers = [];
+let secondsLeft = 600;
+let clock = null;
+let started = false;
+let finished = false;
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",
+    '"':"&quot;","'":"&#39;"
+  })[c]);
+}
+
+function updateProgress(percent,label) {
+  document.getElementById("progressFill").style.width=percent+"%";
+  document.getElementById("progressText").textContent=percent+"%";
+  document.getElementById("stageLabel").textContent=label;
+}
+
+function updateTimer() {
+  const minutes=Math.floor(secondsLeft/60);
+  const seconds=secondsLeft%60;
+  const el=document.getElementById("timer");
+  el.textContent="⏱ "+String(minutes).padStart(2,"0")+":"+
+    String(seconds).padStart(2,"0");
+  el.classList.toggle("warning",secondsLeft<=60);
+}
+
+function startClock() {
+  if(started) return;
+  started=true;
+  clock=setInterval(()=>{
+    if(finished) {
+      clearInterval(clock);
+      return;
+    }
+    if(secondsLeft>0) secondsLeft--;
+    updateTimer();
+    if(secondsLeft===0) {
+      clearInterval(clock);
+      const existing=document.getElementById("timeNote");
+      if(!existing) {
+        const note=document.createElement("p");
+        note.id="timeNote";
+        note.className="note";
+        note.textContent="⏰ 10 minutes reached. You can finish the activity at your own pace.";
+        app.appendChild(note);
+      }
+    }
+  },1000);
+}
+
+function resetQuestion() {
+  selected=null;
+  checked=false;
+}
+
+function welcome() {
+  stage="welcome";
+  updateProgress(0,"Welcome");
+  app.innerHTML=`
+    <div class="eyebrow">English Grammar · A2–B1</div>
+    <div class="hero-icon">🔗💬</div>
+    <h1>Connect the Meaning</h1>
+    <p class="subtitle">
+      Speak more naturally by connecting ideas with conjunctions.
+    </p>
+    <p class="korean">
+      접속사를 사용해 생각을 자연스럽고 정확하게 연결해 보세요.
+    </p>
+    <div class="objectives">
+      <div class="objective">
+        <strong>🧠 2 min</strong>
+        Discover the meaning
+      </div>
+      <div class="objective">
+        <strong>🎯 5 min</strong>
+        Practice real situations
+      </div>
+      <div class="objective">
+        <strong>🏆 3 min</strong>
+        Test your skills
+      </div>
+    </div>
+    <div class="lesson-card">
+      <strong>Today's learning goals</strong>
+      <p>✓ Recognize relationships between ideas.</p>
+      <p>✓ Choose appropriate conjunctions.</p>
+      <p>✓ Build natural sentences for everyday situations.</p>
+    </div>
+    <div class="actions">
+      <button class="btn" id="startBtn">Start Learning →</button>
+    </div>
+    <p class="note">No login needed · No personal data collected</p>
+  `;
+  document.getElementById("startBtn").onclick=()=>{
+    startClock();
+    discovery();
+  };
+}
+
+function discovery() {
+  stage="discovery";
+  updateProgress(10,"Step 1 · Discover");
+  app.innerHTML=`
+    <div class="eyebrow">Step 1 · Notice the meaning</div>
+    <h2>One small word changes the message.</h2>
+    <p class="subtitle">Compare these two sentences.</p>
+    <div class="lesson-card">
+      <div class="tag">REASON</div>
+      <div class="example">
+        I stayed home <span class="highlight">because</span> I was tired.
+      </div>
+      <div class="korean">피곤했기 때문에 집에 있었어요.</div>
+      <p><strong>Because</strong> tells us WHY.</p>
+    </div>
+    <div class="lesson-card">
+      <div class="tag">RESULT</div>
+      <div class="example">
+        I was tired, <span class="highlight">so</span> I stayed home.
+      </div>
+      <div class="korean">피곤해서 집에 있었어요.</div>
+      <p><strong>So</strong> tells us WHAT HAPPENED AS A RESULT.</p>
+    </div>
+    <div class="scene">
+      <strong>💡 Grammar insight</strong>
+      <p>
+        Both sentences describe the same situation,
+        but the conjunction changes how the ideas are connected.
+      </p>
+      <p class="korean">
+        because는 이유를, so는 결과를 이끕니다.
+        두 단어를 같은 자리에 무조건 바꿔 쓸 수는 없어요.
+      </p>
+    </div>
+    <div class="actions">
+      <button class="btn" id="nextBtn">Explore the Conjunctions →</button>
+    </div>
+  `;
+  document.getElementById("nextBtn").onclick=reference;
+}
+
+function reference() {
+  stage="reference";
+  updateProgress(20,"Step 1 · Grammar guide");
+  app.innerHTML=`
+    <div class="eyebrow">Your grammar toolkit</div>
+    <h2>7 useful conjunctions</h2>
+    <p class="subtitle">
+      Focus on the relationship between the ideas,
+      not only the Korean translation.
+    </p>
+    <div class="grammar-grid">
+      ${grammar.map(g=>`
+        <div class="grammar-item">
+          <b>${g.word}</b>
+          <small>${g.purpose} · ${g.meaning}</small>
+          <p>${g.example}</p>
+        </div>
+      `).join("")}
+    </div>
+    <div class="scene">
+      <strong>📝 Sentence patterns</strong>
+      <p><b>Reason:</b> I left because I was tired.</p>
+      <p><b>Result:</b> I was tired, so I left.</p>
+      <p><b>Contrast:</b> Although I was tired, I kept working.</p>
+      <p class="korean">
+        주의: Although I was tired, but I kept working. ❌
+      </p>
+      <p class="korean">
+        although와 but을 같은 대조 관계에 중복해서 사용하지 마세요.
+      </p>
+    </div>
+    <div class="actions">
+      <button class="btn" id="practiceBtn">Start Guided Practice →</button>
+    </div>
+  `;
+  document.getElementById("practiceBtn").onclick=()=>{
+    index=0;
+    resetQuestion();
+    renderQuiz("guided");
+  };
+}
+
+function getQuestionSet(mode) {
+  if(mode==="guided") return guided;
+  if(mode==="situations") return situations;
+  return finalQuestions;
+}
+
+function renderQuiz(mode) {
+  stage=mode;
+  const items=getQuestionSet(mode);
+  const item=items[index];
+  const isSituation=mode==="situations";
+  const isFinal=mode==="final";
+
+  let progress;
+  let label;
+  let heading;
+
+  if(mode==="guided") {
+    progress=25+Math.round(index/items.length*25);
+    label="Step 2 · Guided practice";
+    heading="Choose the best conjunction";
+  } else if(isSituation) {
+    progress=50+Math.round(index/items.length*20);
+    label="Step 3 · Real-life situations";
+    heading="English in real life";
+  } else {
+    progress=70+Math.round(index/items.length*30);
+    label="Step 4 · Final challenge";
+    heading="Show what you know";
+  }
+
+  updateProgress(progress,label);
+
+  app.innerHTML=`
+    <div class="eyebrow">${escapeHTML(label)}</div>
+    <h2>${heading}</h2>
+    <p class="subtitle">
+      ${isFinal
+        ? "Choose carefully. Each question is worth 20 points."
+        : "Read the meaning and select the best connector."}
+    </p>
+    ${isSituation?`
+      <div class="scene">
+        <div class="scene-label">${item.scene}</div>
+        <p>${item.context}</p>
+      </div>
+    `:""}
+    <div class="question-count">
+      QUESTION ${index+1} OF ${items.length}
+    </div>
+    <div class="question">${escapeHTML(item.q)}</div>
+    <div class="options" id="options">
+      ${item.options.map((option,i)=>`
+        <button class="option"
+          data-choice="${i}"
+          aria-pressed="false">
+          ${String.fromCharCode(65+i)}. ${escapeHTML(option)}
+        </button>
+      `).join("")}
+    </div>
+    <div id="feedbackArea" aria-live="polite"></div>
+    <div class="actions">
+      <button class="btn" id="checkBtn" disabled>Check Answer</button>
+      <button class="btn hidden" id="continueBtn">
+        ${index===items.length-1?"Finish This Stage →":"Next Question →"}
+      </button>
+    </div>
+  `;
+
+  document.querySelectorAll("[data-choice]").forEach(btn=>{
+    btn.onclick=()=>{
+      if(checked) return;
+      selected=Number(btn.dataset.choice);
+      document.querySelectorAll("[data-choice]").forEach(b=>{
+        const active=Number(b.dataset.choice)===selected;
+        b.classList.toggle("selected",active);
+        b.setAttribute("aria-pressed",String(active));
+      });
+      document.getElementById("checkBtn").disabled=false;
+    };
+  });
+
+  document.getElementById("checkBtn").onclick=()=>checkAnswer(mode);
+  document.getElementById("continueBtn").onclick=()=>nextQuestion(mode);
+}
+
+function checkAnswer(mode) {
+  if(checked || selected===null) return;
+
+  checked=true;
+  const item=getQuestionSet(mode)[index];
+  const choice=item.options[selected];
+  const correct=choice===item.answer;
+
+  if(correct) {
+    if(mode==="guided") guidedCorrect++;
+    else if(mode==="situations") situationCorrect++;
+    else finalCorrect++;
+  }
+
+  if(mode==="final") {
+    answers.push({
+      q:item.q,
+      chosen:choice,
+      correct:item.answer,
+      isCorrect:correct,
+      why:item.why,
+      whyKo:item.whyKo
+    });
+  }
+
+  document.querySelectorAll("[data-choice]").forEach(btn=>{
+    const value=item.options[Number(btn.dataset.choice)];
+    btn.disabled=true;
+    btn.classList.remove("selected");
+    if(value===item.answer) btn.classList.add("correct");
+    else if(Number(btn.dataset.choice)===selected)
+      btn.classList.add("wrong");
+  });
+
+  document.getElementById("feedbackArea").innerHTML=`
+    <div class="feedback ${correct?"success":"error"}">
+      <strong>${correct?"✓ Correct!":"↻ Not quite. Let's learn why."}</strong>
+      <p><b>Answer:</b> ${escapeHTML(item.answer)}</p>
+      <p>${escapeHTML(item.why)}</p>
+      <p class="korean">${escapeHTML(item.whyKo)}</p>
+      <p class="korean">${escapeHTML(item.ko)}</p>
+    </div>
+  `;
+
+  document.getElementById("checkBtn").classList.add("hidden");
+  document.getElementById("continueBtn").classList.remove("hidden");
+}
+
+function nextQuestion(mode) {
+  const items=getQuestionSet(mode);
+  if(index<items.length-1) {
+    index++;
+    resetQuestion();
+    renderQuiz(mode);
+    return;
+  }
+
+  if(mode==="guided") {
+    index=0;
+    resetQuestion();
+    renderQuiz("situations");
+  } else if(mode==="situations") {
+    builderIntro();
+  } else {
+    results();
+  }
+}
+
+function builderIntro() {
+  stage="builder";
+  updateProgress(70,"Step 3 · Build a sentence");
+
+  app.innerHTML=`
+    <div class="eyebrow">Step 3 · Sentence building</div>
+    <h2>Build the connection</h2>
+    <p class="subtitle">
+      Choose a conjunction to complete a natural sentence.
+    </p>
+    <div class="scene">
+      <strong>📍 Situation: After work</strong>
+      <p>You are explaining why you decided to stay home.</p>
+    </div>
+    <div class="builder">
+      <span>I was exhausted,</span>
+      <select id="builderChoice" aria-label="Choose a conjunction">
+        <option value="">Choose...</option>
+        <option value="because">because</option>
+        <option value="so">so</option>
+        <option value="although">although</option>
+        <option value="or">or</option>
+      </select>
+      <span>I stayed home.</span>
+    </div>
+    <div id="builderFeedback" aria-live="polite"></div>
+    <div class="actions">
+      <button class="btn" id="builderCheck">Check Sentence</button>
+      <button class="btn hidden" id="builderNext">Final Challenge →</button>
+    </div>
+  `;
+
+  document.getElementById("builderCheck").onclick=()=>{
+    const choice=document.getElementById("builderChoice").value;
+    if(!choice) return;
+
+    const correct=choice==="so";
+    const feedback=document.getElementById("builderFeedback");
+
+    feedback.innerHTML=`
+      <div class="feedback ${correct?"success":"error"}">
+        <strong>${correct?"✓ Natural sentence!":"Think about cause and result."}</strong>
+        <p>
+          I was exhausted, <b>so</b> I stayed home.
+        </p>
+        <p class="korean">
+          피곤했다는 원인 뒤에 집에 있었다는 결과가 나옵니다.
+          따라서 so가 적절합니다.
+        </p>
+        <p class="korean">
+          Because를 사용하려면
+          "I stayed home because I was exhausted."처럼
+          문장 구조를 바꿀 수 있습니다.
+        </p>
+      </div>
+    `;
+
+    if(correct) {
+      document.getElementById("builderChoice").disabled=true;
+      document.getElementById("builderCheck").classList.add("hidden");
+      document.getElementById("builderNext").classList.remove("hidden");
+    }
+  };
+
+  document.getElementById("builderNext").onclick=()=>{
+    index=0;
+    resetQuestion();
+    renderQuiz("final");
+  };
+}
+
+function results() {
+  finished=true;
+  clearInterval(clock);
+  stage="results";
+  updateProgress(100,"Completed");
+
+  const score=finalCorrect*20;
+  const totalPractice=guidedCorrect+situationCorrect;
+  const elapsed=600-secondsLeft;
+  const min=Math.floor(elapsed/60);
+  const sec=elapsed%60;
+
+  let message;
+  if(score===100) message="Excellent! You connect ideas confidently.";
+  else if(score>=80) message="Great work! Your connections are getting stronger.";
+  else if(score>=60) message="Good progress! Review a few tricky relationships.";
+  else message="Keep practicing. Focus on what each conjunction means.";
+
+  const mistakes=answers.filter(a=>!a.isCorrect);
+
+  app.innerHTML=`
+    <div class="eyebrow">🏆 Activity completed</div>
+    <h2>Your English Connection Report</h2>
+    <div class="score-circle">${score}<span style="font-size:17px">/100</span></div>
+    <p style="text-align:center;font-weight:750">${message}</p>
+    <p class="korean" style="text-align:center">
+      최종 평가 ${finalCorrect}/5문항 정답
+    </p>
+    <div class="objectives">
+      <div class="objective">
+        <strong>${totalPractice}/9</strong>
+        Guided & real-life practice
+      </div>
+      <div class="objective">
+        <strong>${finalCorrect}/5</strong>
+        Final challenge
+      </div>
+      <div class="objective">
+        <strong>${min}:${String(sec).padStart(2,"0")}</strong>
+        Learning time
+      </div>
+    </div>
+    <h3>Personalized review</h3>
+    ${
+      mistakes.length===0
+      ? `<div class="review">
+          🌟 You answered every final question correctly.
+          Try using these conjunctions in your own conversations!
+        </div>`
+      : mistakes.map(a=>`
+          <div class="review">
+            <strong>${escapeHTML(a.correct)}</strong>
+            <p>${escapeHTML(a.q)}</p>
+            <p class="korean">
+              Your answer: ${escapeHTML(a.chosen)}
+            </p>
+            <p>${escapeHTML(a.why)}</p>
+            <p class="korean">${escapeHTML(a.whyKo)}</p>
+          </div>
+        `).join("")
+    }
+    <div class="scene">
+      <strong>🎤 Transfer to real life</strong>
+      <p>
+        Think of your day. Can you make three sentences
+        using <b>because</b>, <b>but</b>, and <b>so</b>?
+      </p>
+      <p class="korean">
+        오늘 하루를 떠올리며 세 접속사로 직접 문장을 만들어 보세요.
+      </p>
+    </div>
+    <div class="actions">
+      <button class="btn" id="restartBtn">↻ Practice Again</button>
+      <button class="btn secondary" id="reviewBtn">Review Grammar</button>
+    </div>
+    <p class="note">
+      Your score is calculated from the five final questions.
+      Practice questions provide feedback but do not affect
+      your final score.
+    </p>
+  `;
+
+  document.getElementById("restartBtn").onclick=restart;
+  document.getElementById("reviewBtn").onclick=()=>{
+    app.innerHTML=`
+      <div class="eyebrow">Grammar reference</div>
+      <h2>Your conjunction toolkit</h2>
+      <div class="grammar-grid">
+        ${grammar.map(g=>`
+          <div class="grammar-item">
+            <b>${g.word}</b>
+            <small>${g.purpose} · ${g.meaning}</small>
+            <p>${g.example}</p>
+          </div>
+        `).join("")}
+      </div>
+      <div class="scene">
+        <strong>Remember</strong>
+        <p><b>because</b> → reason</p>
+        <p><b>so</b> → result</p>
+        <p><b>but / although</b> → contrast</p>
+        <p><b>and</b> → addition</p>
+        <p><b>or</b> → choice</p>
+        <p><b>when</b> → time</p>
+      </div>
+      <button class="btn" id="backResults">← Back to Results</button>
+    `;
+    document.getElementById("backResults").onclick=results;
+  };
+}
+
+function restart() {
+  clearInterval(clock);
+  index=0;
+  selected=null;
+  checked=false;
+  guidedCorrect=0;
+  situationCorrect=0;
+  finalCorrect=0;
+  answers=[];
+  secondsLeft=600;
+  started=false;
+  finished=false;
+  updateTimer();
+  welcome();
+}
+
+updateTimer();
+welcome();
+</script>
+</body>
+</html>
